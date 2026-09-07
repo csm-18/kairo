@@ -1,7 +1,9 @@
 package main
 
 import "core:fmt"
+import "core:os"
 
 main :: proc(){
-    fmt.println("Yo!")
+    args := os.args[1:]
+    fmt.println(len(args))
 }
