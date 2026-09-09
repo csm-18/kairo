@@ -14,9 +14,9 @@ pub struct Diagnostic {
 
 impl Diagnostic {
     pub fn print(&self) {
-        println!("{} TS{}: {}", self.category, self.code, self.message);
+        host::writeln!("{} TS{}: {}", self.category, self.code, self.message);
         if *KAIRO_DIAGNOSTIC_COMMENTS {
-            println!(" {}", self.funny_comment);
+            host::writeln!(" {}", self.funny_comment);
         }
     }
 }

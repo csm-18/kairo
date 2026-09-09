@@ -11,3 +11,13 @@ pub fn kairo_diagnostic_comments_env_variable() -> bool {
         Err(_) => false,
     }
 }
+
+/* native io abstraction */
+
+// println!() wrapper macro
+macro_rules! writeln {
+    ($($arg:tt)*) => {
+        println!($($arg)*)
+    };
+}
+pub(crate) use writeln;
