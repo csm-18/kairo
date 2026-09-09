@@ -1,4 +1,5 @@
 mod arg_parser;
+mod cli_flag_parser;
 mod response_file_parser;
 use arg_parser::parse_args;
 
@@ -10,8 +11,9 @@ pub fn run(args: &mut Vec<String>) {
     } else {
         // normal mode
         let (errors, filenames) = parse_args(args);
-        if errors.is_empty() {
-            dbg!(args);
+
+        for file in filenames {
+            dbg!(file);
         }
         for error in errors {
             match error {

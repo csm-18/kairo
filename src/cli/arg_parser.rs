@@ -1,4 +1,7 @@
-use crate::{cli::response_file_parser::expand_response_files, diagnostics::Diagnostic};
+use crate::{
+    cli::{cli_flag_parser::parse_cli__flags, response_file_parser::expand_response_files},
+    diagnostics::Diagnostic,
+};
 
 // parse command-line arguments passed to the compiler in normal mode
 pub fn parse_args(args: &mut Vec<String>) -> (Vec<Option<Diagnostic>>, Vec<String>) {
@@ -16,6 +19,13 @@ pub fn parse_args(args: &mut Vec<String>) -> (Vec<Option<Diagnostic>>, Vec<Strin
     if circular_reference_error {
         return (errors, filenames);
     }
+
+    // parse all command-line flags
+    let flag_parsing_errors = parse_cli__flags(args);
+    errors.extend(flag_parsing_errors);
+
+    // get filenames
+    filenames.extend(args.clone());
 
     (errors, filenames)
 }
