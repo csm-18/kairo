@@ -1,4 +1,5 @@
 mod cli;
+mod diagnostics;
 mod env;
 
 // stand-alone cli compiler entry-point
