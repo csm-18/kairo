@@ -9,6 +9,17 @@ pub fn run(args: &mut Vec<String>) {
         println!("Build mode is not implemented yet!");
     } else {
         // normal mode
-        parse_args(args);
+        let (errors, filenames) = parse_args(args);
+        if errors.is_empty() {
+            dbg!(args);
+        }
+        for error in errors {
+            match error {
+                Some(err) => {
+                    err.print();
+                }
+                None => {}
+            }
+        }
     }
 }

@@ -5,7 +5,6 @@ use crate::host;
 static KAIRO_DIAGNOSTIC_COMMENTS: LazyLock<bool> =
     LazyLock::new(|| host::kairo_diagnostic_comments_env_variable());
 
-#[derive(Debug)]
 pub struct Diagnostic {
     pub code: isize,
     pub message: String,
@@ -43,8 +42,7 @@ pub static DIAGNOSTICS: LazyLock<Vec<Diagnostic>> = LazyLock::new(|| {
             message: "Too many response files provided. Circular reference suspected in file '{}'."
                 .to_string(),
             category: "error".to_string(),
-            funny_comment: "Bhai, teri file khulte-khulte toh main buddha ho jaunga. 😂"
-                .to_string(),
+            funny_comment: "Bhai, teri file khulte-khulte toh main budha ho jaunga. 😂".to_string(),
         },
     ]
 });
