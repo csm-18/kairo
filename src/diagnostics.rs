@@ -5,6 +5,7 @@ use crate::host;
 static KAIRO_DIAGNOSTIC_COMMENTS: LazyLock<bool> =
     LazyLock::new(|| host::kairo_diagnostic_comments_env_variable());
 
+#[derive(Debug)]
 pub struct Diagnostic {
     pub code: isize,
     pub message: String,

@@ -1,4 +1,5 @@
 mod arg_parser;
+mod response_file_parser;
 use arg_parser::parse_args;
 
 // parse and execute command-line arguments passed to the compiler
