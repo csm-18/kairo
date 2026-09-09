@@ -7,5 +7,5 @@ fn main() {
     let mut args: Vec<String> = env::get_cli_args();
 
     // start the compiler cli with command-line arguments
-    cli::run(args);
+    cli::run(&mut args);
 }
