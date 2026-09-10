@@ -1,5 +1,6 @@
 mod arg_parser;
 mod cli_flag_parser;
+mod cli_flags;
 mod response_file_parser;
 use arg_parser::parse_args;
 
